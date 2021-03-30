@@ -37,7 +37,7 @@ export default function Register() {
         axiosWithAuth()
             .post("/auth/register", newUser)
             .then((res) => {
-                setUser(res.data.registered);
+                setUser(res);
                 console.log(res);
 
                 setFormValues(initialFormValues);

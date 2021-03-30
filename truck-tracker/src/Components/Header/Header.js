@@ -13,18 +13,19 @@ export default function Header(props) {
         history.push("/home");
         window.location.reload();
     };
-
+console.log("user", user)
     return (
         <div>
             <div>
                 <Link to="/home">Home</Link>
             </div>
             <div>
-                {user.message ? (
+                {user.data ? (
                     <div>
                         <Link to="/home" onClick={logout}>
                             Logout
                         </Link>
+                        <h1>Welcome back, {user.data.loggedIn.username}</h1>
                     </div>
                 ) : (
                     <div>

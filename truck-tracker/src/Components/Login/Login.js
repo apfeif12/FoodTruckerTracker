@@ -35,8 +35,8 @@ export default function Login() {
         axiosWithAuth()
             .post("/auth/login", user)
             .then((res) => {
-                setUser(res.data);
-                console.log(res.data);
+                setUser(res);
+                console.log(res);
 
                 localStorage.setItem("token", res.data.token);
                 setFormValues(initialFormValues);
