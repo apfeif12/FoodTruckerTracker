@@ -17,6 +17,8 @@ export default function Home() {
                     <button>Register</button>
                 </Link>
             </div>
+
+            
         </div>
     );
 }

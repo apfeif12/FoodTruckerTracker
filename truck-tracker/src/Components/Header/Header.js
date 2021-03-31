@@ -13,11 +13,14 @@ export default function Header(props) {
         history.push("/home");
         window.location.reload();
     };
-console.log("user", user)
+    console.log("user", user);
     return (
         <div>
             <div>
                 <Link to="/home">Home</Link>
+            </div>
+            <div>
+                <Link to="/dashboard">Dashboard</Link>
             </div>
             <div>
                 {user.data ? (
@@ -25,7 +28,7 @@ console.log("user", user)
                         <Link to="/home" onClick={logout}>
                             Logout
                         </Link>
-                        <h1>Welcome back, {user.data.loggedIn.username}</h1>
+                        {/* <h1>Welcome back, {user.data.loggedIn.username}</h1> */}
                     </div>
                 ) : (
                     <div>
