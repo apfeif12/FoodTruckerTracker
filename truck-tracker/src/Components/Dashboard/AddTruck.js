@@ -2,6 +2,7 @@ import React, { useState, useContext } from "react";
 import { axiosWithAuth } from "../../Utils/axiosWithAuth";
 import { useHistory } from "react-router-dom";
 import { UserContext } from "../../Utils/UserContext.js";
+import styled from "styled-components";
 
 export default function AddTruck() {
     const [truck, setTruck] = useState({});
@@ -42,12 +43,12 @@ export default function AddTruck() {
     return (
         <div>
             <div>
-                <h1>Add Truck</h1>
-                <div>
+                <StyledH1>Add Truck</StyledH1>
+                <FormDiv>
                     <form onSubmit={onSubmit}>
                         <div>
                             <label>
-                                <h2>Truck Name</h2>
+                                <StyledH2>Truck Name</StyledH2>
                                 <input
                                     type="text"
                                     name="truck_name"
@@ -57,7 +58,7 @@ export default function AddTruck() {
                                 />
                             </label>
                             <label>
-                                <h2>Truck Description</h2>
+                                <StyledH2>Truck Description</StyledH2>
                                 <input
                                     type="text"
                                     name="truck_description"
@@ -67,7 +68,7 @@ export default function AddTruck() {
                                 />
                             </label>
                             <label>
-                                <h2>Open Time</h2>
+                                <StyledH2>Open Time</StyledH2>
                                 <input
                                     type="time"
                                     name="open_time"
@@ -77,7 +78,7 @@ export default function AddTruck() {
                                 />
                             </label>
                             <label>
-                                <h2>Close Time</h2>
+                                <StyledH2>Close Time</StyledH2>
                                 <input
                                     type="time"
                                     name="close_time"
@@ -87,7 +88,7 @@ export default function AddTruck() {
                                 />
                             </label>
                             <label>
-                                <h2>Cuisine</h2>
+                                <StyledH2>Cuisine</StyledH2>
                                 <input
                                     type="text"
                                     name="cuisine"
@@ -97,7 +98,7 @@ export default function AddTruck() {
                                 />
                             </label>
                             <label>
-                                <h2>User ID</h2>
+                                <StyledH2>User ID</StyledH2>
                                 <input
                                     type="number"
                                     name="user_id"
@@ -107,10 +108,85 @@ export default function AddTruck() {
                                 />
                             </label>
                         </div>
-                        <button type="submit">Submit</button>
+                        <StyledButton type="submit">Submit</StyledButton>
                     </form>
-                </div>
+                </FormDiv>
             </div>
         </div>
     );
 }
+
+
+const StyledButton = styled.button`
+    background-color: rgba(9, 113, 121, 1);
+    width: 100%;
+    margin-top: 1rem;
+    border: none;
+    color: white;
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    padding: 15px 75px 15px 75px;
+    border-radius: 10px;
+    box-sizing: border-box;
+
+    &:hover {
+        opacity: 0.7;
+    }
+`;
+
+const StyledH1 = styled.h1`
+    font-weight: 600;
+    font-size: 50px;
+    line-height: 50px;
+    text-align: center;
+    letter-spacing: 3px;
+    color: #b7b6c2;
+    opacity: 0.4;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
+        1px 1px 0 #000;
+`;
+
+const StyledH2 = styled.h1`
+    font-weight: 600;
+    font-size: 30px;
+    line-height: 50px;
+    text-align: center;
+    letter-spacing: 3px;
+    color: #4d4f51;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
+        1px 1px 0 #000;
+`;
+
+const FormDiv = styled.div`
+    background-color: rgba(82, 45, 128, 0.08);
+    width: 30%;
+    border-radius: 8px;
+    margin: auto;
+    padding-top: 2rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    padding-bottom: 2rem;
+    border: 1px solid black;
+
+    input {
+        width: 100%;
+        height: 2.5rem;
+        border-radius: 4px;
+        padding-left: 0.75rem;
+        box-sizing: border-box;
+        border: 0.5px solid black;
+    }
+
+    h2 {
+        opacity: 40%;
+        margin-bottom: 0.75rem;
+        font-size: 1.15rem;
+    }
+    p {
+        opacity: 40%;
+        margin-bottom: 0.75rem;
+        font-size: 1.15rem;
+        color: red;
+    }
+`;

@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { Link, useHistory } from "react-router-dom";
 import { UserContext } from "../../Utils/UserContext";
+import styled from "styled-components";
 
 export default function Header(props) {
     const history = useHistory();
@@ -15,28 +16,40 @@ export default function Header(props) {
     };
     console.log("user", user);
     return (
-        <div>
-            <div>
+        <Container>
+            <Nav>
                 <Link to="/home">Home</Link>
-            </div>
-            <div>
+            </Nav>
+            <Nav>
                 <Link to="/dashboard">Dashboard</Link>
-            </div>
-            <div>
-                {user.data ? (
-                    <div>
-                        <Link to="/home" onClick={logout}>
-                            Logout
-                        </Link>
-                        {/* <h1>Welcome back, {user.data.loggedIn.username}</h1> */}
-                    </div>
-                ) : (
-                    <div>
-                        <Link to="/login">Login</Link>
-                        <Link to="/register">Register</Link>
-                    </div>
-                )}
-            </div>
-        </div>
+            </Nav>
+
+            {user.data ? (
+                <Nav>
+                    <Link to="/home" onClick={logout}>
+                        Logout
+                    </Link>
+                    {/* <h1>Welcome back, {user.data.loggedIn.username}</h1> */}
+                </Nav>
+            ) : (
+                <Nav>
+                    <Link to="/login">Login</Link>
+                    <Link to="/register">Register</Link>
+                </Nav>
+            )}
+        </Container>
     );
 }
+
+const Container = styled.div`
+    height: 75px;
+    background-color: #484c52;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+`;
+
+const Nav = styled.h2`
+    color: white;
+    text-decoration: none;
+`;
